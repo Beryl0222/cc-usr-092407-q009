@@ -1,0 +1,296 @@
+[
+  {
+    "seq": 1,
+    "event_id": "app:app-demo-100:submitted",
+    "kind": "APPLICATION_SUBMITTED",
+    "occurred_at": "2026-09-25T17:32:45.977059+00:00",
+    "subject_id": "app-demo-100",
+    "payload": {
+      "application_id": "app-demo-100",
+      "budget": [
+        {
+          "category": "设备购置",
+          "amount": "1000000.00",
+          "usage": "仅限设备购置"
+        }
+      ],
+      "usage_restrictions": [
+        "仅限设备购置"
+      ],
+      "related_entities": [
+        {
+          "entity_id": "E-1",
+          "relation": "母公司"
+        }
+      ],
+      "funding_commitments": [
+        {
+          "source": "银行贷款",
+          "amount": "500000.00",
+          "note": ""
+        },
+        {
+          "source": "企业配套",
+          "amount": "200000.00",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "seq": 2,
+    "event_id": "app:app-demo-100:approved",
+    "kind": "APPLICATION_APPROVED",
+    "occurred_at": "2026-09-25T17:32:45.977081+00:00",
+    "subject_id": "app-demo-100",
+    "payload": {
+      "application_id": "app-demo-100",
+      "approver": "wang",
+      "approved_amount": "1000000.00"
+    }
+  },
+  {
+    "seq": 3,
+    "event_id": "app:app-demo-200:submitted",
+    "kind": "APPLICATION_SUBMITTED",
+    "occurred_at": "2026-09-25T17:32:45.977091+00:00",
+    "subject_id": "app-demo-200",
+    "payload": {
+      "application_id": "app-demo-200",
+      "budget": [
+        {
+          "category": "设备",
+          "amount": "500000.00",
+          "usage": ""
+        }
+      ],
+      "usage_restrictions": [],
+      "related_entities": [],
+      "funding_commitments": [
+        {
+          "source": "银行贷款",
+          "amount": "500000.00",
+          "note": ""
+        }
+      ]
+    }
+  },
+  {
+    "seq": 4,
+    "event_id": "evi:app-demo-100:EV-1",
+    "kind": "EVIDENCE_REGISTERED",
+    "occurred_at": "2026-09-25T17:32:45.977144+00:00",
+    "subject_id": "app-demo-100",
+    "payload": {
+      "application_id": "app-demo-100",
+      "evidence_id": "EV-1",
+      "evidence_kind": "INVOICE",
+      "fingerprint": "e2970e58c3173260a267703b631cc25ca75d9bbb1052e62a3adbcaf0254674d1",
+      "content": {
+        "number": "INV-2026-001",
+        "issuer": "甲设备公司",
+        "amount": 12000.5
+      }
+    }
+  },
+  {
+    "seq": 5,
+    "event_id": "evi:app-demo-200:EV-9",
+    "kind": "EVIDENCE_REGISTERED",
+    "occurred_at": "2026-09-25T17:32:45.977173+00:00",
+    "subject_id": "app-demo-200",
+    "payload": {
+      "application_id": "app-demo-200",
+      "evidence_id": "EV-9",
+      "evidence_kind": "INVOICE",
+      "fingerprint": "e2970e58c3173260a267703b631cc25ca75d9bbb1052e62a3adbcaf0254674d1",
+      "content": {
+        "number": "INV-2026-001",
+        "issuer": "甲设备公司",
+        "amount": 12000.5
+      }
+    }
+  },
+  {
+    "seq": 6,
+    "event_id": "ovl:e2970e58c3173260a267703b631cc25ca75d9bbb1052e62a3adbcaf0254674d1",
+    "kind": "OVERLAP_FLAGGED",
+    "occurred_at": "2026-09-25T17:32:45.977180+00:00",
+    "subject_id": "e2970e58c3173260a267703b631cc25ca75d9bbb1052e62a3adbcaf0254674d1",
+    "payload": {
+      "fingerprint": "e2970e58c3173260a267703b631cc25ca75d9bbb1052e62a3adbcaf0254674d1",
+      "application_ids": [
+        "app-demo-100",
+        "app-demo-200"
+      ]
+    }
+  },
+  {
+    "seq": 7,
+    "event_id": "adj:e2970e58c3173260a267703b631cc25ca75d9bbb1052e62a3adbcaf0254674d1:1",
+    "kind": "OVERLAP_ADJUDICATED",
+    "occurred_at": "2026-09-25T17:32:45.977207+00:00",
+    "subject_id": "e2970e58c3173260a267703b631cc25ca75d9bbb1052e62a3adbcaf0254674d1",
+    "payload": {
+      "fingerprint": "e2970e58c3173260a267703b631cc25ca75d9bbb1052e62a3adbcaf0254674d1",
+      "adjudicator": "chen",
+      "verdict": "NOT_DUPLICATE",
+      "rationale": "贷款材料仅报备，未重复融资"
+    }
+  },
+  {
+    "seq": 8,
+    "event_id": "mst:M1:defined",
+    "kind": "MILESTONE_DEFINED",
+    "occurred_at": "2026-09-25T17:32:45.977217+00:00",
+    "subject_id": "app-demo-100",
+    "payload": {
+      "milestone_id": "M1",
+      "application_id": "app-demo-100",
+      "agreement_id": "AG-1",
+      "acceptor_id": "li",
+      "release_ratio": "0.6",
+      "planned_amount": "600000.00",
+      "requires_matching_funds": true,
+      "required_matching_amount": "200000.00"
+    }
+  },
+  {
+    "seq": 9,
+    "event_id": "mst:M1:accepted:1",
+    "kind": "MILESTONE_ACCEPTED",
+    "occurred_at": "2026-09-25T17:32:45.977227+00:00",
+    "subject_id": "app-demo-100",
+    "payload": {
+      "milestone_id": "M1",
+      "application_id": "app-demo-100",
+      "acceptor_id": "li",
+      "accepted_ratio": "1.0",
+      "note": ""
+    }
+  },
+  {
+    "seq": 10,
+    "event_id": "pay:P1:INITIATED",
+    "kind": "PAYMENT_STEP",
+    "occurred_at": "2026-09-25T17:32:45.977251+00:00",
+    "subject_id": "P1",
+    "payload": {
+      "payment_id": "P1",
+      "step": "INITIATED",
+      "milestone_id": "M1",
+      "application_id": "app-demo-100",
+      "amount": "600000.00",
+      "approver": "wang",
+      "payer": "zhao"
+    }
+  },
+  {
+    "seq": 11,
+    "event_id": "pay:P1:APPROVED",
+    "kind": "PAYMENT_STEP",
+    "occurred_at": "2026-09-25T17:32:45.977267+00:00",
+    "subject_id": "P1",
+    "payload": {
+      "payment_id": "P1",
+      "step": "APPROVED",
+      "actor": "wang",
+      "detail": {}
+    }
+  },
+  {
+    "seq": 12,
+    "event_id": "app:app-demo-100:matching:1",
+    "kind": "MATCHING_FUNDS_RECORDED",
+    "occurred_at": "2026-09-25T17:32:45.977293+00:00",
+    "subject_id": "app-demo-100",
+    "payload": {
+      "application_id": "app-demo-100",
+      "amount": "200000.00",
+      "source": "企业配套",
+      "received_at": "2026-09-24"
+    }
+  },
+  {
+    "seq": 13,
+    "event_id": "pay:P1:CONDITIONS_VERIFIED",
+    "kind": "PAYMENT_STEP",
+    "occurred_at": "2026-09-25T17:32:45.977312+00:00",
+    "subject_id": "P1",
+    "payload": {
+      "payment_id": "P1",
+      "step": "CONDITIONS_VERIFIED",
+      "actor": "system",
+      "detail": {}
+    }
+  },
+  {
+    "seq": 14,
+    "event_id": "pay:P1:released",
+    "kind": "TRANCHE_RELEASED",
+    "occurred_at": "2026-09-25T17:32:45.977318+00:00",
+    "subject_id": "app-demo-100",
+    "payload": {
+      "payment_id": "P1",
+      "milestone_id": "M1",
+      "application_id": "app-demo-100",
+      "amount": "600000.00",
+      "payer": "zhao"
+    }
+  },
+  {
+    "seq": 15,
+    "event_id": "pay:P1:RELEASED",
+    "kind": "PAYMENT_STEP",
+    "occurred_at": "2026-09-25T17:32:45.977321+00:00",
+    "subject_id": "P1",
+    "payload": {
+      "payment_id": "P1",
+      "step": "RELEASED",
+      "actor": "zhao",
+      "detail": {
+        "tranche_event_id": "pay:P1:released"
+      }
+    }
+  },
+  {
+    "seq": 16,
+    "event_id": "rcpt:RCPT-1",
+    "kind": "BANK_RECEIPT_RECORDED",
+    "occurred_at": "2026-09-25T17:32:45.977335+00:00",
+    "subject_id": "P1",
+    "payload": {
+      "receipt_ref": "RCPT-1",
+      "payment_id": "P1",
+      "amount": "600000.00"
+    }
+  },
+  {
+    "seq": 17,
+    "event_id": "pay:P1:RECEIPT_CONFIRMED",
+    "kind": "PAYMENT_STEP",
+    "occurred_at": "2026-09-25T17:32:45.977338+00:00",
+    "subject_id": "P1",
+    "payload": {
+      "payment_id": "P1",
+      "step": "RECEIPT_CONFIRMED",
+      "actor": "bank",
+      "detail": {
+        "receipt_ref": "RCPT-1"
+      }
+    }
+  },
+  {
+    "seq": 18,
+    "event_id": "app:app-demo-100:recovery:1",
+    "kind": "RECOVERY_RECONCILED",
+    "occurred_at": "2026-09-25T17:32:45.977344+00:00",
+    "subject_id": "app-demo-100",
+    "payload": {
+      "application_id": "app-demo-100",
+      "amount": "50000.00",
+      "reason": "审计追回",
+      "payment_id": "P1"
+    }
+  }
+]
